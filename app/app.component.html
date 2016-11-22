@@ -16,10 +16,12 @@
                         *ngFor="let user of users"
                         (click)="selectUser(user)"
                         [class.active]="user === activeUser">
-                        {{ user.name }} {{ user.username }}
+                        {{ user.name }} ({{ user.username }})
                     </li>
                 </ul>
             </div>
+
+            <user-form (userCreated)="onUserCreated($event)"></user-form>
         </div>
         <div class="col-sm-8">
             <user-profile [user]="activeUser"></user-profile>
